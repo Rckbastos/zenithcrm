@@ -251,7 +251,7 @@ export default function Sidebar() {
                     } ${
                       isActive
                         ? "text-[#f0daac]"
-                        : "text-white/50 group-hover:text-white/80"
+                        : "text-[rgba(255,255,255,0.6)] group-hover:text-[rgba(255,255,255,0.9)]"
                     }`}
                   >
                     {item.label}
