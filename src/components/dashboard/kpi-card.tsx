@@ -1,13 +1,13 @@
 "use client";
 
-import { cloneElement, isValidElement, useState } from "react";
-import type { ReactNode, CSSProperties } from "react";
+import { cloneElement, useState } from "react";
+import type { CSSProperties, ReactElement, SVGProps } from "react";
 
 interface KpiCardProps {
   title: string;
   value: string | number;
   change: number;
-  icon: ReactNode;
+  icon: ReactElement<SVGProps<SVGSVGElement>>;
   accentColor?: string;
 }
 
@@ -102,16 +102,14 @@ export default function KpiCard({
           flexShrink: 0,
         }}
       >
-        {isValidElement(icon)
-          ? cloneElement(icon, {
-              width: 20,
-              height: 20,
-              style: {
-                ...(icon.props.style ?? {}),
-                color: "#f0daac",
-              },
-            })
-          : icon}
+        {cloneElement(icon, {
+          width: 20,
+          height: 20,
+          style: {
+            ...(icon.props.style ?? {}),
+            color: "#f0daac",
+          },
+        })}
       </div>
       <div
         style={{
